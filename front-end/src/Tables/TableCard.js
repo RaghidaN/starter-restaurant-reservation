@@ -28,7 +28,7 @@ function TableCard({ table }) {
   );
 
   return (
-    <div className="card text-white m-3 row-md-2 border-0 ">
+    <div className="card text-white m-3 row-md-2 border-0 bg-info">
       <div className="card-body">
         <h5 className="card-title mb-3"> Table: {table_name} </h5>
         <p className="card-text pb-0 mb-0">Capacity: {capacity}</p>

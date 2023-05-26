@@ -22,9 +22,9 @@ function Menu() {
   };
 
   return (
-    <nav className="navbar navbar-dark main-navbar navbar-expand-md shadow fixed-top ">
+    <nav className="navbar navbar-dark main-navbar navbar-expand-md shadow fixed-top bg-dark">
       <a className="navbar-brand logo white-text" href="/">
-        <b>Booked.</b>
+        <b>Reservations</b>
       </a>
       <button
         className="navbar-toggler"
