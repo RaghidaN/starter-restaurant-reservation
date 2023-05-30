@@ -65,7 +65,7 @@ function ReservationCard({ reservation }) {
   );
 
   return (
-    <div className="card text-white m-3 my-4 row-md-2 border-0 ">
+    <div className="card text-white m-3 my-4 row-md-2 border-0 bg-dark">
       <h5 className="card-header "> Reservation ID: {reservation_id} </h5>
       <div className="card-body p-4 ">
         <p className="card-text">

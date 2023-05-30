@@ -223,6 +223,7 @@ module.exports = {
   update: [
     asyncErrorBoundary(reservationExists),
     hasValidProperties,
+    isValidDay,
     asyncErrorBoundary(update),
   ],
   updateStatus: [

@@ -73,8 +73,8 @@ function Dashboard({ date }) {
 
   const history = useHistory();
   const todaysDate = today();
-  const nextDay = next(todaysDate);
-  const PreviousDay = previous(todaysDate);
+  const nextDay = next(date);
+  const PreviousDay = previous(date);
 
   const loadingSpinner = (
     <div className="d-flex justify-content-center p-5 m-5">
