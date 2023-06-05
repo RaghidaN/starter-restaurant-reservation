@@ -31,7 +31,10 @@ function Dashboard({ date }) {
   const [reservationsDate, setReservationsDate] = useState(date);
   const query = useQuery();
   const queryDate = query.get("date");
-  
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  let displayDate = urlParams.get('date')
+
   useEffect(() => {
     if (queryDate) {
       setReservationsDate(queryDate);
@@ -150,7 +153,7 @@ function Dashboard({ date }) {
 
             <h6 className="my-2">
               Date:
-              {date ? date : date}
+              {displayDate ? displayDate: date}
             </h6>
             <div className="mb-3">
               <button
