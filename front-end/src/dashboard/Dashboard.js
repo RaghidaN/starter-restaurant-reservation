@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { listReservations, listTables } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { previous, next, today } from "../utils/date-time";
@@ -25,11 +25,18 @@ function Dashboard({ date }) {
   const { reservations, tables, reservationsError, tablesError, loading } =
     stateForm;
 
-  // getting the selected date from the url
+  const history = useHistory();
+  const location = useLocation();
+
+  const [reservationsDate, setReservationsDate] = useState(date);
   const query = useQuery();
-  if (query.get("date")) {
-    date = query.get("date");
-  }
+  const queryDate = query.get("date");
+  
+  useEffect(() => {
+    if (queryDate) {
+      setReservationsDate(queryDate);
+      }
+    }, [queryDate]);
 
   useEffect(loadDashboard, [date]);
 
@@ -71,10 +78,32 @@ function Dashboard({ date }) {
     return () => abortController.abort();
   }
 
-  const history = useHistory();
-  const todaysDate = today();
-  const nextDay = next(date);
-  const PreviousDay = previous(date);
+
+
+
+
+
+
+  function previousButtonClickHandler() {
+    history.push({
+      pathname: location.pathname,
+      search: `?date=${previous(reservationsDate)}`,
+    });
+  }
+
+  function todayButtonClickHandler() {
+    history.push({
+      pathname: location.pathname,
+      search: `?date=${today()}`,
+    });
+  }
+
+  function nextButtonClickHandler() {
+    history.push({
+      pathname: location.pathname,
+      search: `?date=${next(reservationsDate)}`,
+    });
+  }
 
   const loadingSpinner = (
     <div className="d-flex justify-content-center p-5 m-5">
@@ -121,26 +150,24 @@ function Dashboard({ date }) {
 
             <h6 className="my-2">
               Date:
-              {date ? date : todaysDate}
+              {date ? date : date}
             </h6>
             <div className="mb-3">
               <button
                 className="btn btn-secondary m-1"
-                onClick={() =>
-                  history.push(`/reservations?date=${PreviousDay}`)
-                }
+                onClick={previousButtonClickHandler}
               >
                 Previous Day
               </button>
               <button
                 className="btn btn-secondary m-1"
-                onClick={() => history.push(`/reservations?date=${todaysDate}`)}
+                onClick={todayButtonClickHandler}
               >
                 Today
               </button>
               <button
                 className="btn btn-secondary m-1"
-                onClick={() => history.push(`/reservations?date=${nextDay}`)}
+                onClick={nextButtonClickHandler}
               >
                 Next Day
               </button>
