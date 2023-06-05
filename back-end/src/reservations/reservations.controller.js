@@ -131,9 +131,7 @@ function isValidDay(req, res, next) {
   next();
 }
 
-/**
- * List handler for reservation resources
- */
+
 async function list(req, res) {
   const { date, mobile_number } = req.query;
   let reservations;
@@ -211,11 +209,26 @@ function validStatus(req, res, next) {
   }
 }
 
+function validMobileNumber(req, res, next) {
+  const mobileNumber = req.body.data.mobile_number;
+  if (Number.isInteger(mobileNumber.replace(/[^a-z0-9]/gi,''))) {
+    return next();
+  } else {
+    return next({
+      status: 400,
+      message: `Requires valid mobile number.`
+    });
+  }
+  
+}
+
+
 module.exports = {
   create: [
     hasValidProperties,
     isValidDay,
     isBooked,
+    validMobileNumber,
     asyncErrorBoundary(create),
   ],
   list: [asyncErrorBoundary(list)],
@@ -224,6 +237,7 @@ module.exports = {
     asyncErrorBoundary(reservationExists),
     hasValidProperties,
     isValidDay,
+    validMobileNumber,
     asyncErrorBoundary(update),
   ],
   updateStatus: [
