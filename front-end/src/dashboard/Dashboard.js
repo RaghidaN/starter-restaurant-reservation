@@ -36,12 +36,13 @@ function Dashboard({ date }) {
   let displayDate = urlParams.get('date')
 
   useEffect(() => {
-    if (queryDate) {
-      setReservationsDate(queryDate);
-      }
-    }, [queryDate]);
+    // if (queryDate) {
+      //setReservationsDate(queryDate);
+      loadDashboard()
+      // }
+    }, [reservationsDate]);
 
-  useEffect(loadDashboard, [date]);
+  // useEffect(, [date]);
 
   // sending api calls to list the reservations and tables
   function loadDashboard() {
@@ -51,7 +52,7 @@ function Dashboard({ date }) {
       reservationsError: null,
       loading: true,
     }));
-    listReservations({ date }, abortController.signal)
+    listReservations({ date: reservationsDate }, abortController.signal)
       .then((reservationResponse) =>
         setStateForm((currentStateForm) => ({
           ...currentStateForm,
@@ -81,20 +82,17 @@ function Dashboard({ date }) {
     return () => abortController.abort();
   }
 
-
-
-
-
-
-
   function previousButtonClickHandler() {
+    let newDate = previous(reservationsDate)
+    setReservationsDate(newDate)
     history.push({
       pathname: location.pathname,
-      search: `?date=${previous(reservationsDate)}`,
+      search: `?date=${newDate}`,
     });
   }
 
   function todayButtonClickHandler() {
+    setReservationsDate(today())
     history.push({
       pathname: location.pathname,
       search: `?date=${today()}`,
@@ -102,9 +100,12 @@ function Dashboard({ date }) {
   }
 
   function nextButtonClickHandler() {
+    let newDate = next(reservationsDate)
+    setReservationsDate(newDate)
+    console.log('Button date: ', reservationsDate)
     history.push({
       pathname: location.pathname,
-      search: `?date=${next(reservationsDate)}`,
+      search: `?date=${newDate}`,
     });
   }
 
