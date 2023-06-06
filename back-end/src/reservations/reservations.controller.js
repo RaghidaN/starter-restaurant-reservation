@@ -209,9 +209,17 @@ function validStatus(req, res, next) {
   }
 }
 
+function validatePhoneNumber(input_str) {
+  var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+
+  return re.test(input_str);
+}
+
+
 function validMobileNumber(req, res, next) {
   const mobileNumber = req.body.data.mobile_number;
-  if (Number.isInteger(mobileNumber.replace(/[^a-z0-9]/gi,''))) {
+  
+  if (validatePhoneNumber(mobileNumber)) {
     return next();
   } else {
     return next({
