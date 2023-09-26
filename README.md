@@ -1,29 +1,20 @@
-# Capstone: Restaurant Reservation System
+# Restaurant Reservation System
 
-> You have been hired as a full stack developer at _Periodic Tables_, a startup that is creating a reservation system for fine dining restaurants.
 > The software is used only by restaurant personnel when a customer calls to request a reservation.
 > At this point, the customers will not access the system online.
 
-There are no user stories for deployment: it is expected that you will deploy the application to production after you finish a user story.
+Live Website: https://revised-restaurant-reservation-front.onrender.com/
 
-There are no user stories for logging: it is expected that you will add logging to the application with enough detail to help you diagnose issues in production.
+[![Screen-Shot-2023-09-26-at-10-31-51-AM.png](https://i.postimg.cc/ZnKwbzP1/Screen-Shot-2023-09-26-at-10-31-51-AM.png)](https://postimg.cc/R6y7d8DR)
 
-## Existing files
+## This repository is set up as a *monorepo*, meaning that the frontend and backend projects are in one repository. This allows you to open both projects in the same editor.
 
-This repository is set up as a *monorepo*, meaning that the frontend and backend projects are in one repository. This allows you to open both projects in the same editor.
-
-As you work through the user stories listed later in this document, you will be writing code that allows your frontend and backend applications to talk to each other. You will also write code to allow your controllers and services to connect to, and query, your PostgreSQL database via [Knex](http://knexjs.org/).
-
-The table below describes the folders in this starter repository:
 
 | Folder/file path | Description                                                      |
 | ---------------- | ---------------------------------------------------------------- |
 | `./back-end`     | The backend project, which runs on `localhost:5001` by default.  |
 | `./front-end`    | The frontend project, which runs on `localhost:3000` by default. |
 
-This starter code closely follows the best practices and patterns established in the Robust Server Structure module.
-
-**Note**: Please do not submit a pull request to this repository with your solution.
 
 ### Backend Existing files
 
@@ -73,9 +64,7 @@ The table below describes the existing files in the `./front-end` folder:
 | `./front-end/src/utils/useQuery.js`                | Defines a custom hook to parse the query parameters from the URL.                                      |
 
 ## Database setup
-
-1. Set up four new ElephantSQL database instances - development, test, preview, and production - by following the instructions in the "PostgreSQL: Creating & Deleting Databases" checkpoint.
-1. After setting up your database instances, connect DBeaver to your new database instances by following the instructions in the "PostgreSQL: Installing DBeaver" checkpoint.
+Four ElephantSQL database instances - development, test, preview, and production
 
 ### Knex
 
