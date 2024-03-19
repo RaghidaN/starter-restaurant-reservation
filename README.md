@@ -5,7 +5,7 @@
 
 Live Website: https://revised-restaurant-reservation-front.onrender.com/
 
-[![Planning Diagram](https://paste.pics/c87320e1344ce4c10778e5a6e88bbf63)
+[![Planning Diagram]([https://paste.pics/c87320e1344ce4c10778e5a6e88bbf63](https://i2.paste.pics/c87320e1344ce4c10778e5a6e88bbf63.png))
 
 [![Screen-Shot-2023-09-26-at-10-31-51-AM.png](https://i.postimg.cc/ZnKwbzP1/Screen-Shot-2023-09-26-at-10-31-51-AM.png)](https://postimg.cc/R6y7d8DR)
 
