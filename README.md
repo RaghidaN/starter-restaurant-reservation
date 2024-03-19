@@ -5,7 +5,10 @@
 
 Live Website: https://revised-restaurant-reservation-front.onrender.com/
 
+[![Planning Diagram](https://paste.pics/c87320e1344ce4c10778e5a6e88bbf63)
+
 [![Screen-Shot-2023-09-26-at-10-31-51-AM.png](https://i.postimg.cc/ZnKwbzP1/Screen-Shot-2023-09-26-at-10-31-51-AM.png)](https://postimg.cc/R6y7d8DR)
+
 
 ## This repository is set up as a *monorepo*, meaning that the frontend and backend projects are in one repository. This allows you to open both projects in the same editor.
 
